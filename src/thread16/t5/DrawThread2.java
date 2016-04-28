@@ -11,7 +11,7 @@ package thread16.t5;
  * @author Yeeku.H.Lee kongyeeku@163.com
  * @version 1.0
  */
-public class DrawThread extends Thread {
+public class DrawThread2 extends Thread {
 	// 模拟用户账户
 	private Account account;
 	// 当前取钱线程所希望取的钱数
@@ -19,7 +19,7 @@ public class DrawThread extends Thread {
 
 	private String lock;
 
-	public DrawThread(String name, Account account, double drawAmount, String lock) {
+	public DrawThread2(String name, Account account, double drawAmount, String lock) {
 		super(name);
 		this.account = account;
 		this.drawAmount = drawAmount;
