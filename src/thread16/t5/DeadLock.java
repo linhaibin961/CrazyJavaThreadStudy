@@ -13,7 +13,6 @@ package thread16.t5;
  */
 class A {
 	public synchronized void foo(B b) {
-
 		System.out.println("当前线程名: " + Thread.currentThread().getName() + " 进入了A实例的foo方法"); //①
 		try {
 			Thread.sleep(200);
@@ -21,17 +20,11 @@ class A {
 			ex.printStackTrace();
 		}
 		System.out.println("当前线程名: " + Thread.currentThread().getName() + " 企图调用B实例的last方法"); //③
-		//当bar()中释放了资源之后，接下来就是顺序执行了
 		b.last();
-		//唤醒一个线程的时候，线程必须要获得该对象的对象级别锁，的如果调用 notify()时没有持有适当的锁，也会抛出 IllegalMonitorStateException。
-		synchronized (b) {
-			System.out.println("唤醒其他线程");
-			b.notifyAll();
-		}
 	}
 
-	public synchronized void lastA() {
-		System.out.println("当前线程名: " + Thread.currentThread().getName() + " 进入了A类的last方法内部");
+	public synchronized void last() {
+		System.out.println("进入了A类的last方法内部");
 	}
 }
 
@@ -39,29 +32,16 @@ class B {
 	public synchronized void bar(A a) {
 		System.out.println("当前线程名: " + Thread.currentThread().getName() + " 进入了B实例的bar方法"); //②
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(200);
 		} catch (InterruptedException ex) {
 			ex.printStackTrace();
 		}
-		System.out.println("当前线程名: " + Thread.currentThread().getName() + " 企图调用A实例的lastA方法"); //④
-		try {
-			// TODO 这里释放的是什么资源？应该是实例b对象;问题：怎样去唤醒该线程
-			wait();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		//这个时候想要去调用a.lastA()，但是lastA方法是实例的同步,foo()和lastA()方法只能同时被一个线程调用
-		//这个时候a资源已经被主线程中的init()使用了，在init()方法中使用了a.foo(b)，因为foo()和lastA()方法只能同时被一个线程调用
-		System.out.println("aaa");
-		a.lastA();
+		System.out.println("当前线程名: " + Thread.currentThread().getName() + " 企图调用A实例的last方法"); //④
+		a.last();
 	}
 
 	public synchronized void last() {
-		System.out.println("当前线程名: " + Thread.currentThread().getName() + " 进入了B类的last方法内部");
-		//下面这两个notify都能成功唤醒副线程
-		//notify();
-		//this.notify();//问题：这里的this指代哪个？
+		System.out.println("进入了B类的last方法内部");
 	}
 }
 

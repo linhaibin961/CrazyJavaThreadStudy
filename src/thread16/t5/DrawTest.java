@@ -20,9 +20,11 @@ public class DrawTest {
 		String lock3 = "lock";
 		System.out.println(lock == lock2);
 		// 模拟两个线程对同一个账户取钱
-		new DrawThread("甲", acct, 800, lock).start();
-		new DrawThread("乙", acct, 800, lock).start();
-		new DrawThread2("丙", acct, 800, lock2).start();
-		new DrawThread2("丁", acct, 800, lock).start();
+		new DrawThread("甲", acct, 800).start();
+		new DrawThread("乙", acct, 800).start();
+		//new DrawThread1("甲", acct, 800, lock).start();
+		//new DrawThread1("乙", acct, 800, lock).start();
+		/*new DrawThread2("丙", acct, 800, lock2).start();
+		new DrawThread2("丁", acct, 800, lock).start();*/
 	}
 }
