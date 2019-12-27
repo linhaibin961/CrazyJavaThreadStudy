@@ -12,10 +12,22 @@ import java.util.Random;
 public class LhbTestMain1 {
 
     public static void main(String[] args) {
-        System.out.println(System.currentTimeMillis());
-        String s = System.currentTimeMillis() + "";
-        System.out.println("BCS4361413_20007601_1524890862591".length());
-        System.out.println(new Random(System.currentTimeMillis()).nextInt(1000));
+        try {
+            System.out.println(1 / 0);
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            System.out.println("e.getCause()："+e.getCause());
+            System.out.println("e.getMessage()："+e.getMessage());
+        }
+        long l = 11L;
+        int i = (int) l;
+        i--;
+        System.out.println(i);
+
+//        System.out.println(System.currentTimeMillis());
+//        String s = System.currentTimeMillis() + "";
+//        System.out.println("BCS4361413_20007601_1524890862591".length());
+//        System.out.println(new Random(System.currentTimeMillis()).nextInt(1000));
 //        LhbTestMain1 l = new LhbTestMain1();
 //        l.eval1(2, 2, 100, 50);
     }

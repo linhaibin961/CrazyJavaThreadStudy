@@ -3,7 +3,7 @@ package thread16.t5.synchronizedBlock;
 
 /**
  * Description:
- * <br/>网站: <a href="http://www.crazyit.org">疯狂Java联盟</a>
+ * <br/>缃戠珯: <a href="http://www.crazyit.org">鐤媯Java鑱旂洘</a>
  * <br/>Copyright (C), 2001-2012, Yeeku.H.Lee
  * <br/>This program is protected by copyright laws.
  * <br/>Program Name:
@@ -13,25 +13,25 @@ package thread16.t5.synchronizedBlock;
  * @version 1.0
  */
 public class Account {
-    // 封装账户编号、账户余额两个Field
+    // 灏佽璐︽埛缂栧彿銆佽处鎴蜂綑棰濅袱涓狥ield
     private String accountNo;
     private double balance;
 
     public Account() {
     }
 
-    // 构造器
+    // 鏋勯�犲櫒
     public Account(String accountNo, double balance) {
         this.accountNo = accountNo;
         this.balance = balance;
     }
-    // 此处省略了accountNo和balance两个Field的setter和getter方法
+    // 姝ゅ鐪佺暐浜哸ccountNo鍜宐alance涓や釜Field鐨剆etter鍜実etter鏂规硶
 
     public String getAccountNo() {
         return this.accountNo;
     }
 
-    // accountNo的setter和getter方法
+    // accountNo鐨剆etter鍜実etter鏂规硶
     public void setAccountNo(String accountNo) {
         this.accountNo = accountNo;
     }
@@ -40,12 +40,12 @@ public class Account {
         return this.balance;
     }
 
-    // balance的setter和getter方法
+    // balance鐨剆etter鍜実etter鏂规硶
     public void setBalance(double balance) {
         this.balance = balance;
     }
 
-    // 下面两个方法根据accountNo来重写hashCode()和equals()方法
+    // 涓嬮潰涓や釜鏂规硶鏍规嵁accountNo鏉ラ噸鍐檋ashCode()鍜宔quals()鏂规硶
     public int hashCode() {
         return accountNo.hashCode();
     }

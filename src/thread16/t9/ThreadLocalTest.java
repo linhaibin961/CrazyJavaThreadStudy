@@ -2,7 +2,7 @@ package thread16.t9;
 
 /**
  * Description:
- * <br/>ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a>
+ * <br/>ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a>
  * <br/>Copyright (C), 2001-2012, Yeeku.H.Lee
  * <br/>This program is protected by copyright laws.
  * <br/>Program Name:
@@ -12,18 +12,18 @@ package thread16.t9;
  * @version 1.0
  */
 class Account {
-    /* ¶¨ÒåÒ»¸öThreadLocalÀàĞÍµÄ±äÁ¿£¬¸Ã±äÁ¿½«ÊÇÒ»¸öÏß³Ì¾Ö²¿±äÁ¿
-    Ã¿¸öÏß³Ì¶¼»á±£Áô¸Ã±äÁ¿µÄÒ»¸ö¸±±¾ */
+    /* å®šä¹‰ä¸€ä¸ªThreadLocalç±»å‹çš„å˜é‡ï¼Œè¯¥å˜é‡å°†æ˜¯ä¸€ä¸ªçº¿ç¨‹å±€éƒ¨å˜é‡
+    æ¯ä¸ªçº¿ç¨‹éƒ½ä¼šä¿ç•™è¯¥å˜é‡çš„ä¸€ä¸ªå‰¯æœ¬ */
     private ThreadLocal<String> name = new ThreadLocal<>();
 
-    // ¶¨ÒåÒ»¸ö³õÊ¼»¯nameÊôĞÔµÄ¹¹ÔìÆ÷
+    // å®šä¹‰ä¸€ä¸ªåˆå§‹åŒ–nameå±æ€§çš„æ„é€ å™¨
     public Account(String str) {
         this.name.set(str);
-        // ÏÂÃæ´úÂëÓÃÓÚ·ÃÎÊµ±Ç°Ïß³ÌµÄname¸±±¾µÄÖµ
+        // ä¸‹é¢ä»£ç ç”¨äºè®¿é—®å½“å‰çº¿ç¨‹çš„nameå‰¯æœ¬çš„å€¼
         System.out.println("---" + this.name.get());
     }
 
-    // nameµÄsetterºÍgetter·½·¨
+    // nameçš„setterå’Œgetteræ–¹æ³•
     public String getName() {
         return name.get();
     }
@@ -34,7 +34,7 @@ class Account {
 }
 
 class MyTest extends Thread {
-    // ¶¨ÒåÒ»¸öAccountÊôĞÔ
+    // å®šä¹‰ä¸€ä¸ªAccountå±æ€§
     private Account account;
 
     public MyTest(Account account, String name) {
@@ -43,30 +43,30 @@ class MyTest extends Thread {
     }
 
     public void run() {
-        // Ñ­»·10´Î
+        // å¾ªç¯10æ¬¡
         for (int i = 0; i < 10; i++) {
-            // µ±i == 6Ê±Êä³ö½«ÕË»§ÃûÌæ»»³Éµ±Ç°Ïß³ÌÃû
+            // å½“i == 6æ—¶è¾“å‡ºå°†è´¦æˆ·åæ›¿æ¢æˆå½“å‰çº¿ç¨‹å
             if (i == 6) {
                 account.setName(getName());
             }
-            // Êä³öÍ¬Ò»¸öÕË»§µÄÕË»§ÃûºÍÑ­»·±äÁ¿
+            // è¾“å‡ºåŒä¸€ä¸ªè´¦æˆ·çš„è´¦æˆ·åå’Œå¾ªç¯å˜é‡
             System.out.println(account.getName()
-                    + " ÕË»§µÄiÖµ£º" + i);
+                    + " è´¦æˆ·çš„iå€¼ï¼š" + i);
         }
     }
 }
 
 public class ThreadLocalTest {
     public static void main(String[] args) {
-        // Æô¶¯Á½ÌõÏß³Ì£¬Á½ÌõÏß³Ì¹²ÏíÍ¬Ò»¸öAccount
-        Account at = new Account("³õÊ¼Ãû");
+        // å¯åŠ¨ä¸¤æ¡çº¿ç¨‹ï¼Œä¸¤æ¡çº¿ç¨‹å…±äº«åŒä¸€ä¸ªAccount
+        Account at = new Account("åˆå§‹å");
         /*
-        ËäÈ»Á½ÌõÏß³Ì¹²ÏíÍ¬Ò»¸öÕË»§£¬¼´Ö»ÓĞÒ»¸öÕË»§Ãû
-		µ«ÓÉÓÚÕË»§ÃûÊÇThreadLocalÀàĞÍµÄ£¬ËùÒÔÃ¿ÌõÏß³Ì
-		¶¼ÍêÈ«ÓµÓĞ¸÷×ÔµÄÕË»§Ãû¸±±¾£¬ËùÒÔ´Ói == 6Ö®ºó£¬½«¿´µ½Á½Ìõ
-		Ïß³Ì·ÃÎÊÍ¬Ò»¸öÕË»§Ê±¿´µ½²»Í¬µÄÕË»§Ãû¡£
+        è™½ç„¶ä¸¤æ¡çº¿ç¨‹å…±äº«åŒä¸€ä¸ªè´¦æˆ·ï¼Œå³åªæœ‰ä¸€ä¸ªè´¦æˆ·å
+		ä½†ç”±äºè´¦æˆ·åæ˜¯ThreadLocalç±»å‹çš„ï¼Œæ‰€ä»¥æ¯æ¡çº¿ç¨‹
+		éƒ½å®Œå…¨æ‹¥æœ‰å„è‡ªçš„è´¦æˆ·åå‰¯æœ¬ï¼Œæ‰€ä»¥ä»i == 6ä¹‹åï¼Œå°†çœ‹åˆ°ä¸¤æ¡
+		çº¿ç¨‹è®¿é—®åŒä¸€ä¸ªè´¦æˆ·æ—¶çœ‹åˆ°ä¸åŒçš„è´¦æˆ·åã€‚
 		*/
-        new MyTest(at, "Ïß³Ì¼×").start();
-        new MyTest(at, "Ïß³ÌÒÒ").start();
+        new MyTest(at, "çº¿ç¨‹ç”²").start();
+        new MyTest(at, "çº¿ç¨‹ä¹™").start();
     }
 }

@@ -2,7 +2,7 @@ package thread16.t3;
 
 /**
  * Description:
- * <br/>ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a>
+ * <br/>ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a>
  * <br/>Copyright (C), 2001-2012, Yeeku.H.Lee
  * <br/>This program is protected by copyright laws.
  * <br/>Program Name:
@@ -16,25 +16,25 @@ public class InvokeRun extends Thread {
 
     public static void main(String[] args) {
         for (int i = 0; i < 100; i++) {
-            // µ÷ÓÃThreadµÄcurrentThread·½·¨»ñÈ¡µ±Ç°Ïß³Ì
+            // è°ƒç”¨Threadçš„currentThreadæ–¹æ³•è·å–å½“å‰çº¿ç¨‹
             System.out.println(Thread.currentThread().getName() + " " + i);
             if (i == 20) {
-                // Ö±½Óµ÷ÓÃÏß³Ì¶ÔÏóµÄrun·½·¨£¬
-                // ÏµÍ³»á°ÑÏß³Ì¶ÔÏóµ±³ÉÆÕÍ¨¶ÔÏó£¬run·½·¨µ±³ÉÆÕÍ¨·½·¨£¬
-                // ËùÒÔÏÂÃæÁ½ĞĞ´úÂë²¢²»»áÆô¶¯Á½ÌõÏß³Ì£¬¶øÊÇÒÀ´ÎÖ´ĞĞÁ½¸örun·½·¨
+                // ç›´æ¥è°ƒç”¨çº¿ç¨‹å¯¹è±¡çš„runæ–¹æ³•ï¼Œ
+                // ç³»ç»Ÿä¼šæŠŠçº¿ç¨‹å¯¹è±¡å½“æˆæ™®é€šå¯¹è±¡ï¼Œrunæ–¹æ³•å½“æˆæ™®é€šæ–¹æ³•ï¼Œ
+                // æ‰€ä»¥ä¸‹é¢ä¸¤è¡Œä»£ç å¹¶ä¸ä¼šå¯åŠ¨ä¸¤æ¡çº¿ç¨‹ï¼Œè€Œæ˜¯ä¾æ¬¡æ‰§è¡Œä¸¤ä¸ªrunæ–¹æ³•
                 new InvokeRun().run();
                 new InvokeRun().run();
             }
         }
     }
 
-    // ÖØĞ´run·½·¨£¬run·½·¨µÄ·½·¨Ìå¾ÍÊÇÏß³ÌÖ´ĞĞÌå
+    // é‡å†™runæ–¹æ³•ï¼Œrunæ–¹æ³•çš„æ–¹æ³•ä½“å°±æ˜¯çº¿ç¨‹æ‰§è¡Œä½“
     public void run() {
         for (; i < 100; i++) {
-            // Ö±½Óµ÷ÓÃrun·½·¨Ê±£¬ThreadµÄthis.getName·µ»ØµÄÊÇ¸Ã¶ÔÏóÃû×Ö£¬
-            // ¶ø²»ÊÇµ±Ç°Ïß³ÌµÄÃû×Ö¡£
-            // Ê¹ÓÃThread.currentThread().getName()×ÜÊÇ»ñÈ¡µ±Ç°Ïß³ÌÃû×Ö
-            System.out.println(Thread.currentThread().getName() + " " + i);   // ¢Ù
+            // ç›´æ¥è°ƒç”¨runæ–¹æ³•æ—¶ï¼ŒThreadçš„this.getNameè¿”å›çš„æ˜¯è¯¥å¯¹è±¡åå­—ï¼Œ
+            // è€Œä¸æ˜¯å½“å‰çº¿ç¨‹çš„åå­—ã€‚
+            // ä½¿ç”¨Thread.currentThread().getName()æ€»æ˜¯è·å–å½“å‰çº¿ç¨‹åå­—
+            System.out.println(Thread.currentThread().getName() + " " + i);   // â‘ 
         }
     }
 }

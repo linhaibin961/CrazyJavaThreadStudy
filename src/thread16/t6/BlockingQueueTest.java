@@ -5,7 +5,7 @@ import java.util.concurrent.BlockingQueue;
 
 /**
  * Description:
- * <br/>ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a>
+ * <br/>ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a>
  * <br/>Copyright (C), 2001-2012, Yeeku.H.Lee
  * <br/>This program is protected by copyright laws.
  * <br/>Program Name:
@@ -17,10 +17,10 @@ import java.util.concurrent.BlockingQueue;
 public class BlockingQueueTest {
     public static void main(String[] args)
             throws Exception {
-        // ¶¨ÒåÒ»¸ö³¤¶ÈÎª2µÄ×èÈû¶ÓÁĞ
+        // å®šä¹‰ä¸€ä¸ªé•¿åº¦ä¸º2çš„é˜»å¡é˜Ÿåˆ—
         BlockingQueue<String> bq = new ArrayBlockingQueue<>(2);
-        bq.put("Java");//Óëbq.add("Java"¡¢bq.offer("Java")ÏàÍ¬
-        bq.put("Java");//Óëbq.add("Java"¡¢bq.offer("Java")ÏàÍ¬
-        bq.put("Java");//¢Ù ×èÈûÏß³Ì¡£
+        bq.put("Java");//ä¸bq.add("Java"ã€bq.offer("Java")ç›¸åŒ
+        bq.put("Java");//ä¸bq.add("Java"ã€bq.offer("Java")ç›¸åŒ
+        bq.put("Java");//â‘  é˜»å¡çº¿ç¨‹ã€‚
     }
 }

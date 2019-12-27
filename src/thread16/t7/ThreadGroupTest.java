@@ -2,7 +2,7 @@ package thread16.t7;
 
 /**
  * Description: <br/>
- * ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a> <br/>
+ * ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a> <br/>
  * Copyright (C), 2001-2012, Yeeku.H.Lee <br/>
  * This program is protected by copyright laws. <br/>
  * Program Name: <br/>
@@ -12,35 +12,35 @@ package thread16.t7;
  * @version 1.0
  */
 class MyThread extends Thread {
-    // Ìá¹©Ö¸¶¨Ïß³ÌÃûµÄ¹¹ÔìÆ÷
+    // æä¾›æŒ‡å®šçº¿ç¨‹åçš„æ„é€ å™¨
     public MyThread(String name) {
         super(name);
     }
 
-    // Ìá¹©Ö¸¶¨Ïß³ÌÃû¡¢Ïß³Ì×éµÄ¹¹ÔìÆ÷
+    // æä¾›æŒ‡å®šçº¿ç¨‹åã€çº¿ç¨‹ç»„çš„æ„é€ å™¨
     public MyThread(ThreadGroup group, String name) {
         super(group, name);
     }
 
     public void run() {
         for (int i = 0; i < 20; i++) {
-            System.out.println(getName() + " Ïß³ÌµÄi±äÁ¿" + i);
+            System.out.println(getName() + " çº¿ç¨‹çš„iå˜é‡" + i);
         }
     }
 }
 
 public class ThreadGroupTest {
     public static void main(String[] args) {
-        // »ñÈ¡Ö÷Ïß³ÌËùÔÚµÄÏß³Ì×é£¬ÕâÊÇËùÓĞÏß³ÌÄ¬ÈÏµÄÏß³Ì×é
+        // è·å–ä¸»çº¿ç¨‹æ‰€åœ¨çš„çº¿ç¨‹ç»„ï¼Œè¿™æ˜¯æ‰€æœ‰çº¿ç¨‹é»˜è®¤çš„çº¿ç¨‹ç»„
         ThreadGroup mainGroup = Thread.currentThread().getThreadGroup();
-        System.out.println("Ö÷Ïß³Ì×éµÄÃû×Ö£º" + mainGroup.getName());
-        System.out.println("Ö÷Ïß³Ì×éÊÇ·ñÊÇºóÌ¨Ïß³Ì×é£º" + mainGroup.isDaemon());
-        new MyThread("Ö÷Ïß³Ì×éµÄÏß³Ì").start();
-        ThreadGroup tg = new ThreadGroup("ĞÂÏß³Ì×é");
+        System.out.println("ä¸»çº¿ç¨‹ç»„çš„åå­—ï¼š" + mainGroup.getName());
+        System.out.println("ä¸»çº¿ç¨‹ç»„æ˜¯å¦æ˜¯åå°çº¿ç¨‹ç»„ï¼š" + mainGroup.isDaemon());
+        new MyThread("ä¸»çº¿ç¨‹ç»„çš„çº¿ç¨‹").start();
+        ThreadGroup tg = new ThreadGroup("æ–°çº¿ç¨‹ç»„");
         tg.setDaemon(true);
-        System.out.println("tgÏß³Ì×éÊÇ·ñÊÇºóÌ¨Ïß³Ì×é£º" + tg.isDaemon());
-        MyThread tt = new MyThread(tg, "tg×éµÄÏß³Ì¼×");
+        System.out.println("tgçº¿ç¨‹ç»„æ˜¯å¦æ˜¯åå°çº¿ç¨‹ç»„ï¼š" + tg.isDaemon());
+        MyThread tt = new MyThread(tg, "tgç»„çš„çº¿ç¨‹ç”²");
         tt.start();
-        new MyThread(tg, "tg×éµÄÏß³ÌÒÒ").start();
+        new MyThread(tg, "tgç»„çš„çº¿ç¨‹ä¹™").start();
     }
 }

@@ -2,7 +2,7 @@ package thread16.t5;
 
 /**
  * Description: <br/>
- * ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a> <br/>
+ * ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a> <br/>
  * Copyright (C), 2001-2012, Yeeku.H.Lee <br/>
  * This program is protected by copyright laws. <br/>
  * Program Name: <br/>
@@ -13,18 +13,18 @@ package thread16.t5;
  */
 public class DrawTest {
     public static void main(String[] args) {
-        // ´´½¨Ò»¸öÕË»§
+        // åˆ›å»ºä¸€ä¸ªè´¦æˆ·
         Account acct = new Account("1234567", 1000);
         String lock = "lock";
         String lock2 = "lock2";
         String lock3 = "lock";
         System.out.println(lock == lock2);
-        // Ä£ÄâÁ½¸öÏß³Ì¶ÔÍ¬Ò»¸öÕË»§È¡Ç®
-        new DrawThread("¼×", acct, 800).start();
-        new DrawThread("ÒÒ", acct, 800).start();
-        //new DrawThread1("¼×", acct, 800, lock).start();
-        //new DrawThread1("ÒÒ", acct, 800, lock).start();
-        /*new DrawThread2("±û", acct, 800, lock2).start();
-        new DrawThread2("¶¡", acct, 800, lock).start();*/
+        // æ¨¡æ‹Ÿä¸¤ä¸ªçº¿ç¨‹å¯¹åŒä¸€ä¸ªè´¦æˆ·å–é’±
+        new DrawThread("ç”²", acct, 800).start();
+        new DrawThread("ä¹™", acct, 800).start();
+        //new DrawThread1("ç”²", acct, 800, lock).start();
+        //new DrawThread1("ä¹™", acct, 800, lock).start();
+        /*new DrawThread2("ä¸™", acct, 800, lock2).start();
+        new DrawThread2("ä¸", acct, 800, lock).start();*/
     }
 }

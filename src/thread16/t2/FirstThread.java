@@ -2,7 +2,7 @@ package thread16.t2;
 
 /**
  * Description:
- * <br/>ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a>
+ * <br/>ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a>
  * <br/>Copyright (C), 2001-2012, Yeeku.H.Lee
  * <br/>This program is protected by copyright laws.
  * <br/>Program Name:
@@ -11,29 +11,35 @@ package thread16.t2;
  * @author Yeeku.H.Lee kongyeeku@163.com
  * @version 1.0
  */
-// Í¨¹ı¼Ì³ĞThreadÀàÀ´´´½¨Ïß³ÌÀà
+// é€šè¿‡ç»§æ‰¿Threadç±»æ¥åˆ›å»ºçº¿ç¨‹ç±»
 public class FirstThread extends Thread {
     private int i;
 
     public static void main(String[] args) {
         for (int i = 0; i < 10; i++) {
-            // µ÷ÓÃThreadµÄcurrentThread·½·¨»ñÈ¡µ±Ç°Ïß³Ì
+            // è°ƒç”¨Threadçš„currentThreadæ–¹æ³•è·å–å½“å‰çº¿ç¨‹
             System.out.println(Thread.currentThread().getName() + " " + i);
             if (i == 2) {
-                // ´´½¨¡¢²¢Æô¶¯µÚÒ»ÌõÏß³Ì
+                // åˆ›å»ºã€å¹¶å¯åŠ¨ç¬¬ä¸€æ¡çº¿ç¨‹
                 new FirstThread().start();
-                // ´´½¨¡¢²¢Æô¶¯µÚ¶şÌõÏß³Ì
+                // åˆ›å»ºã€å¹¶å¯åŠ¨ç¬¬äºŒæ¡çº¿ç¨‹
                 new FirstThread().start();
+                new Thread(){
+                    @Override
+                    public void run() {
+                        System.out.println("ä½ å¥½");
+                    }
+                }.start();
             }
         }
     }
 
-    // ÖØĞ´run·½·¨£¬run·½·¨µÄ·½·¨Ìå¾ÍÊÇÏß³ÌÖ´ĞĞÌå
+    // é‡å†™runæ–¹æ³•ï¼Œrunæ–¹æ³•çš„æ–¹æ³•ä½“å°±æ˜¯çº¿ç¨‹æ‰§è¡Œä½“
     public synchronized void run() {
         for (; i < 10; i++) {
-            // µ±Ïß³ÌÀà¼Ì³ĞThreadÀàÊ±£¬Ö±½ÓÊ¹ÓÃthis¼´¿É»ñÈ¡µ±Ç°Ïß³Ì
-            // Thread¶ÔÏóµÄgetName()·µ»Øµ±Ç°¸ÃÏß³ÌµÄÃû×Ö
-            // Òò´Ë¿ÉÒÔÖ±½Óµ÷ÓÃgetName()·½·¨·µ»Øµ±Ç°Ïß³ÌµÄÃû
+            // å½“çº¿ç¨‹ç±»ç»§æ‰¿Threadç±»æ—¶ï¼Œç›´æ¥ä½¿ç”¨thiså³å¯è·å–å½“å‰çº¿ç¨‹
+            // Threadå¯¹è±¡çš„getName()è¿”å›å½“å‰è¯¥çº¿ç¨‹çš„åå­—
+            // å› æ­¤å¯ä»¥ç›´æ¥è°ƒç”¨getName()æ–¹æ³•è¿”å›å½“å‰çº¿ç¨‹çš„å
             System.out.println(getName() + " " + i);
         }
     }

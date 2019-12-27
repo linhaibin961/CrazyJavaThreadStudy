@@ -2,7 +2,7 @@ package thread16.t3;
 
 /**
  * Description:
- * <br/>ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a>
+ * <br/>ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a>
  * <br/>Copyright (C), 2001-2012, Yeeku.H.Lee
  * <br/>This program is protected by copyright laws.
  * <br/>Program Name:
@@ -15,28 +15,28 @@ public class StartDead extends Thread {
     private int i;
 
     public static void main(String[] args) {
-        // ´´½¨Ïß³Ì¶ÔÏó
+        // åˆ›å»ºçº¿ç¨‹å¯¹è±¡
         StartDead sd = new StartDead();
         for (int i = 0; i < 300; i++) {
-            // µ÷ÓÃThreadµÄcurrentThread·½·¨»ñÈ¡µ±Ç°Ïß³Ì
+            // è°ƒç”¨Threadçš„currentThreadæ–¹æ³•è·å–å½“å‰çº¿ç¨‹
             System.out.println(Thread.currentThread().getName() + " " + i);
             if (i == 20) {
-                // Æô¶¯Ïß³Ì
+                // å¯åŠ¨çº¿ç¨‹
                 sd.start();
-                // ÅĞ¶ÏÆô¶¯ºóÏß³ÌµÄisAlive()Öµ£¬Êä³ötrue
+                // åˆ¤æ–­å¯åŠ¨åçº¿ç¨‹çš„isAlive()å€¼ï¼Œè¾“å‡ºtrue
                 System.out.println(sd.isAlive());
             }
-            // Ö»ÓĞµ±Ïß³Ì´¦ÓÚĞÂ½¨¡¢ËÀÍöÁ½ÖÖ×´Ì¬Ê±isAlive()·½·¨·µ»Øfalse¡£
-            // µ±i > 20£¬Ôò¸ÃÏß³Ì¿Ï¶¨ÒÑ¾­Æô¶¯¹ıÁË£¬Èç¹ûsd.isAlive()Îª¼ÙÊ±£¬
-            // ÄÇÖ»ÄÜÊÇËÀÍö×´Ì¬ÁË¡£
+            // åªæœ‰å½“çº¿ç¨‹å¤„äºæ–°å»ºã€æ­»äº¡ä¸¤ç§çŠ¶æ€æ—¶isAlive()æ–¹æ³•è¿”å›falseã€‚
+            // å½“i > 20ï¼Œåˆ™è¯¥çº¿ç¨‹è‚¯å®šå·²ç»å¯åŠ¨è¿‡äº†ï¼Œå¦‚æœsd.isAlive()ä¸ºå‡æ—¶ï¼Œ
+            // é‚£åªèƒ½æ˜¯æ­»äº¡çŠ¶æ€äº†ã€‚
             if (i > 20 && !sd.isAlive()) {
-                // ÊÔÍ¼ÔÙ´ÎÆô¶¯¸ÃÏß³Ì
+                // è¯•å›¾å†æ¬¡å¯åŠ¨è¯¥çº¿ç¨‹
                 sd.start();
             }
         }
     }
 
-    // ÖØĞ´run·½·¨£¬run·½·¨µÄ·½·¨Ìå¾ÍÊÇÏß³ÌÖ´ĞĞÌå
+    // é‡å†™runæ–¹æ³•ï¼Œrunæ–¹æ³•çš„æ–¹æ³•ä½“å°±æ˜¯çº¿ç¨‹æ‰§è¡Œä½“
     public void run() {
         for (; i < 100; i++) {
             System.out.println(getName() + " " + i);

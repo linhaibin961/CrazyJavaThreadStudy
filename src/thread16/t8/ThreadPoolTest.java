@@ -5,7 +5,7 @@ import java.util.concurrent.Executors;
 
 /**
  * Description:
- * <br/>ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a>
+ * <br/>ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a>
  * <br/>Copyright (C), 2001-2012, Yeeku.H.Lee
  * <br/>This program is protected by copyright laws.
  * <br/>Program Name:
@@ -15,23 +15,23 @@ import java.util.concurrent.Executors;
  * @version 1.0
  */
 
-// ÊµÏÖRunnable½Ó¿ÚÀ´¶¨ÒåÒ»¸ö¼òµ¥µÄÏß³ÌÀà
+// å®ç°Runnableæ¥å£æ¥å®šä¹‰ä¸€ä¸ªç®€å•çš„çº¿ç¨‹ç±»
 class MyThread implements Runnable {
     public void run() {
         for (int i = 0; i < 100; i++) {
-            System.out.println(Thread.currentThread().getName() + "µÄiÖµÎª:" + i);
+            System.out.println(Thread.currentThread().getName() + "çš„iå€¼ä¸º:" + i);
         }
     }
 }
 
 public class ThreadPoolTest {
     public static void main(String[] args) throws Exception {
-        // ´´½¨Ò»¸ö¾ßÓĞ¹Ì¶¨Ïß³ÌÊı£¨6£©µÄÏß³Ì³Ø
+        // åˆ›å»ºä¸€ä¸ªå…·æœ‰å›ºå®šçº¿ç¨‹æ•°ï¼ˆ6ï¼‰çš„çº¿ç¨‹æ± 
         ExecutorService pool = Executors.newFixedThreadPool(6);
-        // ÏòÏß³Ì³ØÖĞÌá½»Á½¸öÏß³Ì
+        // å‘çº¿ç¨‹æ± ä¸­æäº¤ä¸¤ä¸ªçº¿ç¨‹
         pool.submit(new MyThread());
         pool.submit(new MyThread());
-        // ¹Ø±ÕÏß³Ì³Ø
+        // å…³é—­çº¿ç¨‹æ± 
         pool.shutdown();
     }
 }

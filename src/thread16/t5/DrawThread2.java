@@ -2,7 +2,7 @@ package thread16.t5;
 
 /**
  * Description: <br/>
- * ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a> <br/>
+ * ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a> <br/>
  * Copyright (C), 2001-2012, Yeeku.H.Lee <br/>
  * This program is protected by copyright laws. <br/>
  * Program Name: <br/>
@@ -12,9 +12,9 @@ package thread16.t5;
  * @version 1.0
  */
 public class DrawThread2 extends Thread {
-    // Ä£ÄâÓÃ»§ÕË»§
+    // æ¨¡æ‹Ÿç”¨æˆ·è´¦æˆ·
     private Account account;
-    // µ±Ç°È¡Ç®Ïß³ÌËùÏ£ÍûÈ¡µÄÇ®Êı
+    // å½“å‰å–é’±çº¿ç¨‹æ‰€å¸Œæœ›å–çš„é’±æ•°
     private double drawAmount;
 
     private String lock;
@@ -26,23 +26,23 @@ public class DrawThread2 extends Thread {
         this.lock = lock;
     }
 
-    // µ±¶àÌõÏß³ÌĞŞ¸ÄÍ¬Ò»¸ö¹²ÏíÊı¾İÊ±£¬½«Éæ¼°Êı¾İ°²È«ÎÊÌâ¡£
+    // å½“å¤šæ¡çº¿ç¨‹ä¿®æ”¹åŒä¸€ä¸ªå…±äº«æ•°æ®æ—¶ï¼Œå°†æ¶‰åŠæ•°æ®å®‰å…¨é—®é¢˜ã€‚
     public void run() {
         synchronized (lock) {
-            // ÕË»§Óà¶î´óÓÚÈ¡Ç®ÊıÄ¿
+            // è´¦æˆ·ä½™é¢å¤§äºå–é’±æ•°ç›®
             if (account.getBalance() >= drawAmount) {
-                // ÍÂ³ö³®Æ±
-                System.out.println(getName() + "È¡Ç®³É¹¦£¡ÍÂ³ö³®Æ±:" + drawAmount);
+                // åå‡ºé’ç¥¨
+                System.out.println(getName() + "å–é’±æˆåŠŸï¼åå‡ºé’ç¥¨:" + drawAmount);
                 try {
                     Thread.sleep(1);
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
                 }
-                // ĞŞ¸ÄÓà¶î
+                // ä¿®æ”¹ä½™é¢
                 account.setBalance(account.getBalance() - drawAmount);
-                System.out.println("\t" + getName() + "Óà¶îÎª: " + account.getBalance());
+                System.out.println("\t" + getName() + "ä½™é¢ä¸º: " + account.getBalance());
             } else {
-                System.out.println(getName() + "È¡Ç®Ê§°Ü£¡Óà¶î²»×ã£¡");
+                System.out.println(getName() + "å–é’±å¤±è´¥ï¼ä½™é¢ä¸è¶³ï¼");
             }
         }
     }

@@ -2,7 +2,7 @@ package thread16.t4;
 
 /**
  * Description:
- * <br/>ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a>
+ * <br/>ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a>
  * <br/>Copyright (C), 2001-2012, Yeeku.H.Lee
  * <br/>This program is protected by copyright laws.
  * <br/>Program Name:
@@ -12,20 +12,20 @@ package thread16.t4;
  * @version 1.0
  */
 public class JoinThread extends Thread {
-    // Ìá¹©Ò»¸öÓĞ²ÎÊıµÄ¹¹ÔìÆ÷£¬ÓÃÓÚÉèÖÃ¸ÃÏß³ÌµÄÃû×Ö
+    // æä¾›ä¸€ä¸ªæœ‰å‚æ•°çš„æ„é€ å™¨ï¼Œç”¨äºè®¾ç½®è¯¥çº¿ç¨‹çš„åå­—
     public JoinThread(String name) {
         super(name);
     }
 
     public static void main(String[] args) throws Exception {
-        // Æô¶¯×ÓÏß³Ì
-        new JoinThread("ĞÂÏß³Ì").start();
+        // å¯åŠ¨å­çº¿ç¨‹
+        new JoinThread("æ–°çº¿ç¨‹").start();
         for (int i = 0; i < 100; i++) {
             if (i == 20) {
-                JoinThread jt = new JoinThread("±»JoinµÄÏß³Ì");
+                JoinThread jt = new JoinThread("è¢«Joinçš„çº¿ç¨‹");
                 jt.start();
-                // mainÏß³Ìµ÷ÓÃÁËjtÏß³ÌµÄjoin()·½·¨£¬mainÏß³Ì
-                // ±ØĞëµÈjtÖ´ĞĞ½áÊø²Å»áÏòÏÂÖ´ĞĞ
+                // mainçº¿ç¨‹è°ƒç”¨äº†jtçº¿ç¨‹çš„join()æ–¹æ³•ï¼Œmainçº¿ç¨‹
+                // å¿…é¡»ç­‰jtæ‰§è¡Œç»“æŸæ‰ä¼šå‘ä¸‹æ‰§è¡Œ
                 jt.join();
             }
             System.out.println(Thread.currentThread().getName()
@@ -33,7 +33,7 @@ public class JoinThread extends Thread {
         }
     }
 
-    // ÖØĞ´run·½·¨£¬¶¨ÒåÏß³ÌÖ´ĞĞÌå
+    // é‡å†™runæ–¹æ³•ï¼Œå®šä¹‰çº¿ç¨‹æ‰§è¡Œä½“
     public void run() {
         for (int i = 0; i < 100; i++) {
             System.out.println(getName() + "  " + i);
