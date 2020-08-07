@@ -44,6 +44,7 @@ class B {
         System.out.println("当前线程名: " + Thread.currentThread().getName() + " 企图调用A实例的last方法"); //④
         a.last();
         synchronized (a) {
+            //唤醒一个线程的时候，线程必须要获得该对象的对象级别锁，的如果调用 notify()时没有持有适当的锁，也会抛出 IllegalMonitorStateException。
             a.notify();
         }
     }

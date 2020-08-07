@@ -46,7 +46,7 @@ class D {
         }
         System.out.println("当前线程名: " + Thread.currentThread().getName() + " 企图调用C实例的lastC方法"); //④
         try {
-            // TODO 这里释放的是什么资源？应该是实例b对象;问题：怎样去唤醒该线程
+            // TODO 这里释放的是什么资源？应该是实例D对象;问题：怎样去唤醒该线程
             wait();
         } catch (InterruptedException e) {
             // TODO Auto-generated catch block

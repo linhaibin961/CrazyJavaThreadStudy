@@ -20,11 +20,11 @@ public class YieldTest extends Thread {
         // 启动两条并发线程
         YieldTest yt1 = new YieldTest("高级");
         // 将ty1线程设置成最高优先级
-        //		yt1.setPriority(Thread.MAX_PRIORITY);
+        		yt1.setPriority(Thread.MAX_PRIORITY);
         yt1.start();
         YieldTest yt2 = new YieldTest("低级");
         // 将yt2线程设置成最低优先级
-        //		yt2.setPriority(Thread.MIN_PRIORITY);
+        		yt2.setPriority(Thread.MIN_PRIORITY);
         yt2.start();
     }
 
